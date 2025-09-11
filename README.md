@@ -38,6 +38,8 @@ Started May 2025
 
 Started this in May 2025 because honestly? I was tired of hearing "market sentiment" thrown around like everyone knew what it meant. Spoiler: they didn't. So I built something that actually measures it, predicts with it, and makes money from it. Originally planned this as a full-scale institutional trading system with live execution, multi-asset coverage, and real-time processing of every news source on the planet. Had to scale it back to focus on what actually works: US equities, major news sources, and proven strategies. Still beats hedge fund algorithms though, and I built it in my apartment.
 
+ This repository contains a demonstration version. The full production system with all models and features is proprietary.
+
 <div align="center">
   
 ![separator](https://img.shields.io/badge/-E6E6FA?style=flat&color=E6E6FA)

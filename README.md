@@ -102,6 +102,25 @@ The dashboard? It's not just pretty charts. Every visualization tells you someth
 ## The Technical Architecture
 
 <div align="center">
+
+![Python](https://img.shields.io/badge/Python-FFE4E1?style=flat-square&logo=python&logoColor=666)
+![XGBoost](https://img.shields.io/badge/XGBoost-E6E6FA?style=flat-square&logo=xgboost&logoColor=666)
+![LightGBM](https://img.shields.io/badge/LightGBM-F0F8FF?style=flat-square&logo=microsoft&logoColor=666)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FFF0F5?style=flat-square&logo=tensorflow&logoColor=666)
+![BERT](https://img.shields.io/badge/BERT-FAFAD2?style=flat-square&logo=huggingface&logoColor=666)
+![Streamlit](https://img.shields.io/badge/Streamlit-FFE4B5?style=flat-square&logo=streamlit&logoColor=666)
+![Plotly](https://img.shields.io/badge/Plotly-E0FFFF?style=flat-square&logo=plotly&logoColor=666)
+![Pandas](https://img.shields.io/badge/Pandas-FFE4E1?style=flat-square&logo=pandas&logoColor=666)
+![NumPy](https://img.shields.io/badge/NumPy-E6E6FA?style=flat-square&logo=numpy&logoColor=666)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F0F8FF?style=flat-square&logo=scikit-learn&logoColor=666)
+![yfinance](https://img.shields.io/badge/yfinance-FFF0F5?style=flat-square&logo=yahoo&logoColor=666)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-FAFAD2?style=flat-square&logo=postgresql&logoColor=666)
+![Redis](https://img.shields.io/badge/Redis-FFE4B5?style=flat-square&logo=redis&logoColor=666)
+![Docker](https://img.shields.io/badge/Docker-E0FFFF?style=flat-square&logo=docker&logoColor=666)
+
+</div>
+
+<div align="center">
 <table width="100%" style="border-spacing: 5px;">
 <tr>
 <td colspan="3" align="center" style="background: linear-gradient(90deg, #FAFAD2 0%, #FFE4B5 100%); padding:15px; border-radius:10px;">

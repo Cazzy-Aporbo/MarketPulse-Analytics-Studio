@@ -1,5 +1,3 @@
-# MarketPulse-Analytics-Studio
-Exploring Financial Markets
 # MarketPulse Analytics Studio
 
 <div align="center">

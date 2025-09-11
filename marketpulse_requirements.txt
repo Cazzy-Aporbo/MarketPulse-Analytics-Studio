@@ -1,0 +1,62 @@
+# MarketPulse Analytics Studio Requirements
+# Cazandra Aporbo, MS
+# Last Updated: September 2025
+
+# Core data processing
+pandas==2.2.3
+numpy==1.26.4
+pyarrow==20.0.0
+
+# Financial data
+yfinance==0.2.52
+ta==0.11.0  # Technical analysis library
+
+# Machine learning
+scikit-learn==1.5.2
+xgboost==2.1.1
+lightgbm==4.5.0
+
+# Natural language processing
+vaderSentiment==3.3.2
+textblob==0.18.0
+nltk==3.9.1
+
+# Visualization
+plotly==5.24.1
+matplotlib==3.9.2
+wordcloud==1.9.3
+seaborn==0.13.2
+
+# Web application
+streamlit==1.43.2
+
+# API and networking
+requests==2.32.3
+aiohttp==3.10.5
+tenacity==9.0.0  # Retry logic
+
+# Configuration
+pyyaml==6.0.2
+python-dotenv==1.0.1
+
+# Utilities
+pytz==2024.2
+tqdm==4.66.5
+stqdm==0.0.5  # Streamlit progress bars
+
+# Data validation
+pydantic==2.9.2
+marshmallow==3.22.0
+
+# Testing (optional but recommended)
+pytest==8.3.3
+pytest-cov==5.0.0
+
+# Code quality (optional)
+black==24.8.0
+pylint==3.3.0
+mypy==1.11.2
+
+# Performance monitoring
+memory-profiler==0.61.0
+line-profiler==4.1.3

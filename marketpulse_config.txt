@@ -1,0 +1,235 @@
+# MarketPulse Analytics Studio Configuration
+# Created by Cazandra Aporbo, MS
+# 
+# This configuration file controls all aspects of the system.
+# I've organized it for clarity and ease of modification.
+
+# API Configuration
+api:
+  finnhub_key: "YOUR_API_KEY_HERE"  # Get yours at finnhub.io
+  rate_limit: 60  # Requests per minute
+  timeout: 30  # Seconds before timeout
+  retry_attempts: 3
+  retry_delay: 5  # Seconds between retries
+
+# Data Pipeline Settings
+data:
+  cache_enabled: true
+  cache_ttl: 3600  # Cache time-to-live in seconds
+  default_ticker: "SPY"  # Fallback ticker when user input fails
+  max_history_days: 730  # Maximum historical data to fetch
+  
+  # Data quality thresholds
+  min_data_points: 20  # Minimum points needed for analysis
+  max_missing_ratio: 0.1  # Maximum 10% missing data allowed
+
+# Model Configuration
+models:
+  # Ensemble weights - these are optimized through backtesting
+  ensemble_weights:
+    xgboost: 0.4
+    lightgbm: 0.3
+    neural: 0.2
+    baseline: 0.1
+  
+  # XGBoost parameters
+  xgboost:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+  
+  # LightGBM parameters
+  lightgbm:
+    n_estimators: 200
+    max_depth: 5
+    learning_rate: 0.05
+    num_leaves: 31
+    feature_fraction: 0.8
+  
+  # Neural network architecture
+  neural:
+    hidden_layers: [128, 64, 32]
+    activation: "relu"
+    dropout_rate: 0.3
+    batch_size: 32
+    epochs: 100
+    early_stopping_patience: 10
+
+# Sentiment Analysis Configuration
+sentiment:
+  # Weight different sentiment sources
+  source_weights:
+    reuters: 1.0
+    bloomberg: 1.2  # Bloomberg tends to be more accurate
+    cnbc: 0.8
+    wsj: 1.1
+    default: 0.5
+  
+  # Sentiment decay - older news matters less
+  decay_rate: 0.95  # Daily decay
+  lookback_days: 30
+  
+  # Sentiment thresholds
+  bullish_threshold: 0.3
+  bearish_threshold: -0.3
+  
+  # Advanced NLP settings
+  use_entity_recognition: true
+  use_topic_modeling: true
+  min_headline_length: 10  # Characters
+
+# Feature Engineering Settings
+features:
+  # Technical indicators to calculate
+  technical_indicators:
+    - rsi
+    - macd
+    - bollinger_bands
+    - atr
+    - obv
+    - stochastic
+  
+  # Rolling window periods
+  windows:
+    short: [5, 10]
+    medium: [20, 50]
+    long: [100, 200]
+  
+  # Lag features
+  lag_periods: [1, 2, 3, 5, 10, 20]
+  
+  # Feature selection
+  max_features: 50
+  feature_selection_method: "mutual_info"  # or "recursive", "lasso"
+
+# Visualization Settings
+visualization:
+  theme: "sophisticated"  # My custom theme
+  fps: 60  # Target frame rate for animations
+  
+  # Color scheme
+  color_positive: "#4a9b7f"  # Sage green
+  color_negative: "#c0504d"  # Muted red
+  color_neutral: "#457b9d"   # Steel blue
+  
+  # Chart settings
+  chart_height: 900
+  show_volume: true
+  show_indicators: true
+  candlestick_style: "traditional"  # or "heikin_ashi"
+  
+  # Dashboard layout
+  metrics_refresh_rate: 5  # Seconds
+  max_news_items: 20
+  show_confidence_bands: true
+
+# Risk Management
+risk:
+  # Position sizing
+  max_position_size: 0.1  # 10% of portfolio
+  stop_loss: 0.05  # 5% stop loss
+  take_profit: 0.15  # 15% take profit
+  
+  # Risk metrics
+  calculate_var: true
+  var_confidence: 0.95
+  calculate_sharpe: true
+  risk_free_rate: 0.02  # 2% annual
+  
+  # Alerts
+  volatility_alert_threshold: 2.0  # Standard deviations
+  drawdown_alert_threshold: 0.1  # 10% drawdown
+
+# Performance Monitoring
+monitoring:
+  enable_logging: true
+  log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_file: "logs/marketpulse.log"
+  
+  # Performance tracking
+  track_predictions: true
+  track_latency: true
+  alert_on_errors: true
+  
+  # Model monitoring
+  drift_detection: true
+  drift_threshold: 0.1
+  retrain_frequency: "weekly"  # or "daily", "monthly"
+
+# Backtesting Configuration
+backtesting:
+  initial_capital: 100000
+  commission: 0.001  # 0.1% per trade
+  slippage: 0.0005  # 0.05% slippage
+  
+  # Walk-forward analysis
+  training_window: 252  # 1 year of trading days
+  testing_window: 63   # 3 months
+  step_size: 21        # Rebalance monthly
+  
+  # Evaluation metrics
+  metrics:
+    - total_return
+    - sharpe_ratio
+    - max_drawdown
+    - win_rate
+    - profit_factor
+    - calmar_ratio
+
+# Notification Settings (future feature)
+notifications:
+  enabled: false
+  email:
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    from_address: "marketpulse@example.com"
+  
+  # Alert conditions
+  alerts:
+    - type: "price_change"
+      threshold: 0.05  # 5% move
+    - type: "sentiment_spike"
+      threshold: 2.0   # 2 standard deviations
+    - type: "volume_surge"
+      threshold: 3.0   # 3x average volume
+
+# Database Configuration (for production)
+database:
+  enabled: false
+  type: "postgresql"  # or "mysql", "sqlite"
+  host: "localhost"
+  port: 5432
+  name: "marketpulse"
+  user: "admin"
+  password: "change_me"
+  
+  # Connection pool
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+
+# Development Settings
+development:
+  debug_mode: false
+  mock_data: false  # Use synthetic data for testing
+  profile_performance: false
+  show_warnings: true
+  
+  # Testing
+  test_tickers: ["AAPL", "GOOGL", "MSFT", "AMZN", "TSLA"]
+  test_period: "1mo"
+
+# Production Settings
+production:
+  debug_mode: false
+  use_cache: true
+  optimize_models: true
+  parallel_processing: true
+  num_workers: 4
+  
+  # Security
+  api_key_encryption: true
+  secure_headers: true
+  rate_limiting: true
